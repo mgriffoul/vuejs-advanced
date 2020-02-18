@@ -1,7 +1,10 @@
 <template>
  <div>
   <b-navbar toggleable="lg" type="dark" variant="info">
-    <b-navbar-brand href="#">GreenFood</b-navbar-brand>
+
+    <b-navbar-brand href="#">
+      <img alt="Vue logo" src="../../assets/logo-small.png">
+    </b-navbar-brand>
 
     <b-collapse id="nav-collapse" is-nav>
 
@@ -24,23 +27,39 @@
 
       <b-navbar-nav class="ml-auto">
           <span class="navbar-text mr-1">
-            Tell us what ingredient you want to cook :
+            Tell us what you want to cook :
           </span>
 
           <b-nav-form>
-            <b-form-input size="sm" class="mr-sm-2" placeholder="Ingredient"></b-form-input>
+            <b-form-input size="sm" class="mr-sm-2" placeholder="ex : sprouts"></b-form-input>
             <b-button size="sm" class="my-2 my-sm-0" type="submit">Go Cooking</b-button>
           </b-nav-form>
 
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
+  <button class="myButon" v-on:click="increment">+</button>
+  <button class="myButon" v-on:click="decrement">-</button>
+  <p> is true ? --> {{ displayCount }} </p>
 </div>
 </template>
 
 <script>
 export default {
   name: 'Navbar',
+  methods: {
+    increment() {
+      this.$store.dispatch('increment');
+    },
+    decrement() {
+      this.$store.dispatch('decrement');
+    },
+  },
+  computed: {
+    displayCount() {
+      return this.$store.state.count;
+    },
+  },
 };
 </script>
 
