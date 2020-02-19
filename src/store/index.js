@@ -5,31 +5,25 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    count: 0,
+    ingredient: '',
   },
   getters: {
-    getCount: (state) => state.count,
+    getIngredient: (state) => state.ingredient,
   },
   mutations: {
-    increment(state) {
-      state.count += 1;
-    },
-    decrement(state) {
-      state.count -= 1;
-    },
-    add(state, number) {
-      state.count += number;
+    setIngredient(state, ingredient) {
+      state.ingredient = ingredient;
     },
   },
   actions: {
-    addWithTimeout({ commit }) {
+    /*  addWithTimeout({ commit }) {
       return new Promise(((resolve) => {
         setTimeout(() => {
           commit('add', 5);
           resolve();
         }, 2000);
       }));
-    },
+    },  */
   },
   modules: {
   },

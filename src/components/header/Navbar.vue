@@ -18,7 +18,7 @@
         <b-nav-item-dropdown right>
           <!-- Using 'button-content' slot -->
           <template v-slot:button-content>
-            <em>User</em>
+            User
           </template>
           <b-dropdown-item href="#">Profile</b-dropdown-item>
           <b-dropdown-item href="#">Sign Out</b-dropdown-item>
@@ -27,48 +27,38 @@
 
       <b-navbar-nav class="ml-auto">
           <span class="navbar-text mr-1">
-            Tell us what you want to cook :
+            <em>Tell us what you want to cook :</em>
           </span>
 
-          <b-nav-form>
-            <b-form-input size="sm" class="mr-sm-2" placeholder="ex : sprouts"></b-form-input>
-            <b-button size="sm" class="my-2 my-sm-0" type="submit">Go Cooking</b-button>
+          <b-nav-form @submit.prevent="submit">
+            <b-form-input size="sm" class="mr-sm-2"
+            placeholder="ex : sprouts" v-model="ingredient"></b-form-input>
+            <b-button size="sm"
+              class="my-2 my-sm-0"
+              type="submit"
+              >Cook !</b-button>
           </b-nav-form>
 
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
-  <button class="myButon" v-on:click="increment">+</button>
-  <button class="myButon" v-on:click="decrement">-</button>
-  <button class="myButon" v-on:click="addFive">+5</button>
-  <p> is true ? --> {{ getCount }} </p>
 </div>
 </template>
 
 <script>
 
-import { mapGetters, mapMutations } from 'vuex';
-import { INCREMENT, DECREMENT } from '../../constants/mutations';
-
 export default {
   name: 'Navbar',
-  methods: {
-    ...mapMutations([
-      INCREMENT,
-      DECREMENT,
-    ]),
-    addFive() {
-      return this.$store.dispatch('addWithTimeout');
-    },
+  data() {
+    return {
+      ingredient: '',
+    };
   },
-  computed: {
-    ...mapGetters([
-      'getCount',
-    ]),
+  methods: {
+    submit() {
+      this.$store.commit('setIngredient', this.ingredient);
+      this.$router.push('/result');
+    },
   },
 };
 </script>
-
-<style scoped>
-
-</style>
