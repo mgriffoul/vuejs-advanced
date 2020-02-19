@@ -7,6 +7,9 @@ export default new Vuex.Store({
   state: {
     count: 0,
   },
+  getters: {
+    getCount: (state) => state.count,
+  },
   mutations: {
     increment(state) {
       state.count += 1;
@@ -14,13 +17,18 @@ export default new Vuex.Store({
     decrement(state) {
       state.count -= 1;
     },
+    add(state, number) {
+      state.count += number;
+    },
   },
   actions: {
-    increment(context) {
-      context.commit('increment');
-    },
-    decrement(context) {
-      context.commit('decrement');
+    addWithTimeout({ commit }) {
+      return new Promise(((resolve) => {
+        setTimeout(() => {
+          commit('add', 5);
+          resolve();
+        }, 2000);
+      }));
     },
   },
   modules: {

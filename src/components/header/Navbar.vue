@@ -40,25 +40,31 @@
   </b-navbar>
   <button class="myButon" v-on:click="increment">+</button>
   <button class="myButon" v-on:click="decrement">-</button>
-  <p> is true ? --> {{ displayCount }} </p>
+  <button class="myButon" v-on:click="addFive">+5</button>
+  <p> is true ? --> {{ getCount }} </p>
 </div>
 </template>
 
 <script>
+
+import { mapGetters, mapMutations } from 'vuex';
+import { INCREMENT, DECREMENT } from '../../constants/mutations';
+
 export default {
   name: 'Navbar',
   methods: {
-    increment() {
-      this.$store.dispatch('increment');
-    },
-    decrement() {
-      this.$store.dispatch('decrement');
+    ...mapMutations([
+      INCREMENT,
+      DECREMENT,
+    ]),
+    addFive() {
+      return this.$store.dispatch('addWithTimeout');
     },
   },
   computed: {
-    displayCount() {
-      return this.$store.state.count;
-    },
+    ...mapGetters([
+      'getCount',
+    ]),
   },
 };
 </script>
