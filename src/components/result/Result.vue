@@ -15,6 +15,14 @@ export default {
       'getIngredient',
     ]),
   },
+  mounted: {
+    function() {
+      axios
+      .get('https://api.spoonacular.com/recipes/findByIngredients')
+      .
+      .then(response => (this.info = response))
+    },
+  },
 };
 </script>
 

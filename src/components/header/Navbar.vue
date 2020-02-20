@@ -57,6 +57,7 @@ export default {
   methods: {
     submit() {
       this.$store.commit('setIngredient', this.ingredient);
+      this.ingredient = '';
       this.$router.push('/result');
     },
   },

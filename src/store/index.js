@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import setIngredient from './mutations';
 
 Vue.use(Vuex);
 
@@ -11,19 +12,9 @@ export default new Vuex.Store({
     getIngredient: (state) => state.ingredient,
   },
   mutations: {
-    setIngredient(state, ingredient) {
-      state.ingredient = ingredient;
-    },
+    setIngredient,
   },
   actions: {
-    /*  addWithTimeout({ commit }) {
-      return new Promise(((resolve) => {
-        setTimeout(() => {
-          commit('add', 5);
-          resolve();
-        }, 2000);
-      }));
-    },  */
   },
   modules: {
   },
