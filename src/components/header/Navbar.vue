@@ -32,7 +32,7 @@
 
           <b-nav-form @submit.prevent="submit">
             <b-form-input size="sm" class="mr-sm-2"
-            placeholder="ex : sprouts" v-model="ingredient"></b-form-input>
+            placeholder="ex : sprouts" v-model="searchIngredient"></b-form-input>
             <b-button size="sm"
               class="my-2 my-sm-0"
               type="submit"
@@ -47,18 +47,32 @@
 
 <script>
 
+import { mapGetters } from 'vuex';
+import client from '../../api/spoonacularClient';
+
 export default {
   name: 'Navbar',
-  data() {
-    return {
-      ingredient: '',
-    };
+  computed: {
+    ...mapGetters([
+      'getSearchIngredient',
+    ]),
+    searchIngredient: {
+      get() {
+        return this.getSearchIngredient;
+      },
+      set(submitIngredient) {
+        return submitIngredient;
+      },
+    },
   },
   methods: {
-    submit() {
-      this.$store.commit('setIngredient', this.ingredient);
-      this.ingredient = '';
-      this.$router.push('/result');
+    async submit() {
+      const spoonacularResults = await client.myPromise();
+      console.log(spoonacularResults);
+      this.$store.dispatch('updateReceipt', spoonacularResults);
+      if (!this.$router.path || this.$router.path === '/result') {
+        this.$router.push('/result').catch(() => {});
+      }
     },
   },
 };
