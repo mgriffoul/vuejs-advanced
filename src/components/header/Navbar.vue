@@ -1,3 +1,4 @@
+/*eslint-disable*/
 <template>
  <div>
   <b-navbar toggleable="lg" type="dark" variant="info">
@@ -30,7 +31,7 @@
             <em>Tell us what you want to cook :</em>
           </span>
 
-          <b-nav-form @submit.prevent="submit">
+          <b-nav-form @submit.prevent="handleSubmit">
             <b-form-input size="sm" class="mr-sm-2"
             placeholder="ex : sprouts" v-model="searchIngredient"></b-form-input>
             <b-button size="sm"
@@ -66,11 +67,11 @@ export default {
     },
   },
   methods: {
-    async submit() {
-      const spoonacularResults = await client.myPromise();
-      console.log(spoonacularResults);
+    async handleSubmit() {
+      // eslint-disable-next-line no-alert
+      const spoonacularResults = await client.getMockedDatas();
       this.$store.dispatch('updateReceipt', spoonacularResults);
-      if (!this.$router.path || this.$router.path === '/result') {
+      if (!this.$router.path || !this.$router.path === '/result') {
         this.$router.push('/result').catch(() => {});
       }
     },

@@ -1,5 +1,7 @@
-const getMockedDatas = () => new Promise((resolve) => {
-  const tab = [
+/*eslint-disable*/ 
+
+const findByIngredients = () => {
+const tab =  [
     {
       id: 19021,
       title: 'Tomatoes, Mixed Bean Sprouts And Mixed Leaves',
@@ -136,8 +138,7 @@ const getMockedDatas = () => new Promise((resolve) => {
       unusedIngredients: [],
       likes: 9,
     }];
-  console.log(tab);
-  resolve(tab);
-});
+  return tab;
+  };
 
-export default { getMockedDatas };
+export default { findByIngredients };

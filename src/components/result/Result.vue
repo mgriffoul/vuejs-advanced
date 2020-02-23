@@ -1,4 +1,4 @@
-/* eslint-disable*/
+
 <template>
   <div class="result">
     <p> {{ getSearchIngredient }} </p>
