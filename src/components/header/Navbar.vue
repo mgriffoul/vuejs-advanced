@@ -48,31 +48,33 @@
 
 <script>
 
-import { mapGetters } from 'vuex';
+import { mapGetters, mapMutations } from 'vuex';
 import findByIngredients from '../../api/spoonacularClient';
 
 export default {
   name: 'Navbar',
+  data() {
+    return {
+      searchIngredient: '',
+    };
+  },
   computed: {
     ...mapGetters([
       'getSearchIngredient',
     ]),
-    searchIngredient: {
-      get() {
-        return this.getSearchIngredient;
-      },
-      set(submitIngredient) {
-        return submitIngredient;
-      },
-    },
+    ...mapMutations([
+      'setSearchIngredient',
+    ]),
   },
   methods: {
     async handleSubmit() {
+      this.$store.commit('setSearchIngredient', { ingredient: this.searchIngredient });
       const mock = await findByIngredients();
-      this.$store.dispatch('updateReceipt', mock);
+      this.$store.dispatch('updateReceipts', mock);
       if (!this.$router.path || !this.$router.path === '/result') {
         this.$router.push('/result').catch(() => {});
       }
+      this.searchIngredient = '';
     },
   },
 };
