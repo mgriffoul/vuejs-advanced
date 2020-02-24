@@ -49,7 +49,7 @@
 <script>
 
 import { mapGetters } from 'vuex';
-import client from '../../api/spoonacularClient';
+import findByIngredients from '../../api/spoonacularClient';
 
 export default {
   name: 'Navbar',
@@ -68,9 +68,8 @@ export default {
   },
   methods: {
     async handleSubmit() {
-      // eslint-disable-next-line no-alert
-      const spoonacularResults = await client.getMockedDatas();
-      this.$store.dispatch('updateReceipt', spoonacularResults);
+      const mock = await findByIngredients();
+      this.$store.dispatch('updateReceipt', mock);
       if (!this.$router.path || !this.$router.path === '/result') {
         this.$router.push('/result').catch(() => {});
       }
