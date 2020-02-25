@@ -1,12 +1,12 @@
 <template>
 <header id="header">
-  <b-navbar toggleable="lg" variant="info" class="navbar navbar-dark">
+  <b-navbar toggleable="lg" class="bg-custom">
       <b-navbar-brand href="#">
         <img alt="Vue logo" src="../../assets/logo-small.png">
       </b-navbar-brand>
     <b-collapse id="nav-collapse" is-nav>
       <Navbar/>
-      <HeadSearchEngine v-bind:display-gimmik="false"/>
+      <HeadSearchEngine v-bind:display-gimmik="true"/>
     </b-collapse>
   </b-navbar>
 </header>
@@ -29,8 +29,8 @@ export default {
 #header {
   box-shadow: 0px 5px 5px 5px $shadow-grey;
 
-  ._navbar {
-    color: red;
+  .bg-custom {
+    background-color: $primary-green;
   }
 
 }

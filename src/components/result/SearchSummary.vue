@@ -1,7 +1,7 @@
 <template>
   <div id="summary">
     <span>
-       <h2>' {{ getSearchIngredient }} '</h2>: {{ getResultsNumber }} résultats
+       <h3> {{ getSearchIngredient }} </h3>: {{ getResultsNumber }} results
     </span>
     <HeadSearchEngine v-bind:display-gimmik="false"/>
   </div>
@@ -36,7 +36,7 @@ export default {
       color: $primary-green
     }
 
-    h2 {
+    h3 {
       display: inline;
     }
   }
