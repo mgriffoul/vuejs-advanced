@@ -1,14 +1,12 @@
 <template>
 <header id="header">
   <b-navbar toggleable="lg" variant="info" class="navbar navbar-dark">
-    <logo>
       <b-navbar-brand href="#">
         <img alt="Vue logo" src="../../assets/logo-small.png">
       </b-navbar-brand>
-    </logo>
     <b-collapse id="nav-collapse" is-nav>
       <Navbar/>
-      <HeadSearchEngine/>
+      <HeadSearchEngine v-bind:display-gimmik="false"/>
     </b-collapse>
   </b-navbar>
 </header>

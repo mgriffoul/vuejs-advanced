@@ -1,4 +1,3 @@
-
 <template>
     <ul id="recipes-list">
         <li v-for="recipe in getRecipes" :key="recipe.id" class="_recipe">
@@ -36,7 +35,9 @@ export default {
 #recipes-list{
   list-style: none;
   padding-left: 0;
-
+  ul {
+  list-style: none;
+}
   li {
     margin-top: $primary-space;
   }

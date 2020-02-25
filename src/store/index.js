@@ -12,6 +12,7 @@ export default new Vuex.Store({
     getSearchIngredient: (state) => state.searchIngredient.charAt(0).toUpperCase()
     + state.searchIngredient.slice(1),
     getRecipes: (state) => state.recipes,
+    getResultsNumber: (state) => state.recipes.length,
   },
   mutations: {
     updateRecipes(state, recipes) {

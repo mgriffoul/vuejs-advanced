@@ -8,6 +8,7 @@
 </template>
 
 <script>
+
 import SearchSummary from './SearchSummary.vue';
 import RecipesList from './RecipesList.vue';
 
@@ -17,9 +18,9 @@ export default {
     SearchSummary,
     RecipesList,
   },
+
 };
 </script>
 
 <style scoped>
-
 </style>
