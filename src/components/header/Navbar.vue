@@ -1,14 +1,6 @@
 /*eslint-disable*/
 <template>
  <div>
-  <b-navbar toggleable="lg" type="dark" variant="info">
-
-    <b-navbar-brand href="#">
-      <img alt="Vue logo" src="../../assets/logo-small.png">
-    </b-navbar-brand>
-
-    <b-collapse id="nav-collapse" is-nav>
-
       <b-navbar-nav>
         <b-nav-item-dropdown text="Recipes" right>
           <b-dropdown-item href="#">French</b-dropdown-item>
@@ -25,57 +17,13 @@
           <b-dropdown-item href="#">Sign Out</b-dropdown-item>
         </b-nav-item-dropdown>
       </b-navbar-nav>
-
-      <b-navbar-nav class="ml-auto">
-          <span class="navbar-text mr-1">
-            <em>Tell us what you want to cook :</em>
-          </span>
-
-          <b-nav-form @submit.prevent="handleSubmit">
-            <b-form-input size="sm" class="mr-sm-2"
-            placeholder="ex : sprouts" v-model="searchIngredient"></b-form-input>
-            <b-button size="sm"
-              class="my-2 my-sm-0"
-              type="submit"
-              >Cook !</b-button>
-          </b-nav-form>
-
-      </b-navbar-nav>
-    </b-collapse>
-  </b-navbar>
 </div>
 </template>
 
 <script>
 
-import { mapGetters, mapMutations } from 'vuex';
-import findByIngredients from '../../api/spoonacularClient';
 
 export default {
   name: 'Navbar',
-  data() {
-    return {
-      searchIngredient: '',
-    };
-  },
-  computed: {
-    ...mapGetters([
-      'getSearchIngredient',
-    ]),
-    ...mapMutations([
-      'setSearchIngredient',
-    ]),
-  },
-  methods: {
-    async handleSubmit() {
-      this.$store.commit('setSearchIngredient', { ingredient: this.searchIngredient });
-      const mock = await findByIngredients();
-      this.$store.dispatch('updateRecipes', mock);
-      if (!this.$router.path || !this.$router.path === '/result') {
-        this.$router.push('/result').catch(() => {});
-      }
-      this.searchIngredient = '';
-    },
-  },
 };
 </script>
