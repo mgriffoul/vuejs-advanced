@@ -1,5 +1,7 @@
 <template>
- <Navbar/>
+<div id="header">
+  <Navbar/>
+</div>
 </template>
 
 <script>
@@ -12,3 +14,9 @@ export default {
   },
 };
 </script>
+
+<style scoped lang="scss">
+#header {
+  box-shadow: 0px 5px 5px 5px $shadow-grey;
+}
+</style>

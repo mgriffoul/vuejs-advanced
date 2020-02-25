@@ -6,22 +6,22 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     searchIngredient: '',
-    receipts: [],
+    recipes: [],
   },
   getters: {
     getSearchIngredient: (state) => state.searchIngredient,
-    getReceipts: (state) => state.receipts,
+    getRecipes: (state) => state.recipes,
   },
   mutations: {
-    updateReceipts(state, receipts) {
-      state.receipts = [];
-      receipts.map((receipt) => state.receipts.push(receipt));
+    updateRecipes(state, recipes) {
+      state.recipes = [];
+      recipes.map((recipe) => state.recipes.push(recipe));
     },
     setSearchIngredient: (state, value) => { state.searchIngredient = value.ingredient; },
   },
   actions: {
-    updateReceipts(context, receipts) {
-      context.commit('updateReceipts', receipts);
+    updateRecipes(context, recipes) {
+      context.commit('updateRecipes', recipes);
     },
   },
   modules: {

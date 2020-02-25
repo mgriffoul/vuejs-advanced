@@ -3,16 +3,17 @@
   <div class="result">
     <p> {{ getSearchIngredient }} </p>
     <ul id="example-1">
-      <li v-for="receipt in getReceipts" :key="receipt.id">
+      <li v-for="recipe in getRecipes" :key="recipe.id">
         <div class="card" style="width: 18rem;">
-          <h5 class="card-title">{{ receipt.title }}</h5>
-          <img class="card-img-top" v-bind:src=receipt.image alt="Card image cap">
-            <div class="card-body">
+          <div class="card-header">
+            {{ recipe.title }}
+          </div>
+          <img class="card-img-top" v-bind:src=recipe.image alt="Card image cap">
+          <div class="card-body">
             <p class="card-text">
-              Some quick example
-              </p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
+                Some quick example
+            </p>
+          </div>
         </div>
       </li>
     </ul>
@@ -28,7 +29,7 @@ export default {
   computed: {
     ...mapGetters([
       'getSearchIngredient',
-      'getReceipts',
+      'getRecipes',
     ]),
   },
 };

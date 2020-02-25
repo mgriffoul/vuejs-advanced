@@ -10,7 +10,7 @@
     <b-collapse id="nav-collapse" is-nav>
 
       <b-navbar-nav>
-        <b-nav-item-dropdown text="Receipts" right>
+        <b-nav-item-dropdown text="Recipes" right>
           <b-dropdown-item href="#">French</b-dropdown-item>
           <b-dropdown-item href="#">Asian</b-dropdown-item>
           <b-dropdown-item href="#">Fancy</b-dropdown-item>
@@ -70,7 +70,7 @@ export default {
     async handleSubmit() {
       this.$store.commit('setSearchIngredient', { ingredient: this.searchIngredient });
       const mock = await findByIngredients();
-      this.$store.dispatch('updateReceipts', mock);
+      this.$store.dispatch('updateRecipes', mock);
       if (!this.$router.path || !this.$router.path === '/result') {
         this.$router.push('/result').catch(() => {});
       }
