@@ -1,16 +1,17 @@
 <template>
-<div id="header">
-
-<b-navbar toggleable="lg" type="dark" variant="info">
-    <b-navbar-brand href="#">
-      <img alt="Vue logo" src="../../assets/logo-small.png">
-    </b-navbar-brand>
+<header id="header">
+  <b-navbar toggleable="lg" variant="info" class="navbar navbar-dark">
+    <logo>
+      <b-navbar-brand href="#">
+        <img alt="Vue logo" src="../../assets/logo-small.png">
+      </b-navbar-brand>
+    </logo>
     <b-collapse id="nav-collapse" is-nav>
       <Navbar/>
       <HeadSearchEngine/>
     </b-collapse>
   </b-navbar>
-</div>
+</header>
 </template>
 
 <script>
@@ -29,5 +30,10 @@ export default {
 <style scoped lang="scss">
 #header {
   box-shadow: 0px 5px 5px 5px $shadow-grey;
+
+  ._navbar {
+    color: red;
+  }
+
 }
 </style>

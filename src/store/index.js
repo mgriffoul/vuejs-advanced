@@ -9,7 +9,8 @@ export default new Vuex.Store({
     recipes: [],
   },
   getters: {
-    getSearchIngredient: (state) => state.searchIngredient,
+    getSearchIngredient: (state) => state.searchIngredient.charAt(0).toUpperCase()
+    + state.searchIngredient.slice(1),
     getRecipes: (state) => state.recipes,
   },
   mutations: {
