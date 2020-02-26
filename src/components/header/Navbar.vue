@@ -1,6 +1,7 @@
 /*eslint-disable*/
 <template>
- <nav>
+  <nav>
+    <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav >
         <b-nav-item-dropdown text="Recipes" right >
           <b-dropdown-item href="#">French</b-dropdown-item>
@@ -8,7 +9,8 @@
           <b-dropdown-item href="#">Fancy</b-dropdown-item>
         </b-nav-item-dropdown>
       </b-navbar-nav>
-</nav>
+    </b-collapse>
+  </nav>
 </template>
 
 <script>
@@ -18,7 +20,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.navbar{
-  color: red;
-}
+  .b-dropdown-item{
+    color: red;
+  }
 </style>

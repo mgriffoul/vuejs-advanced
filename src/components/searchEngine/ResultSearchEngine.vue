@@ -1,9 +1,11 @@
 <template>
   <b-navbar-nav class="ml-auto search-engine">
       <span class="navbar-text mr-1" v-if="displayGimmik">
-        <em>Tell us what you want to cook :</em>
+        Tell us what you want to cook :
       </span>
+
       <span class="search-picto" v-if="!displayGimmik"><img src="../../assets/search.svg"></span>
+
       <b-nav-form @submit.prevent="handleSubmit">
         <b-form-input size="sm" class="mr-sm-2"
           placeholder="Ingredient" v-model="searchIngredient"></b-form-input>
@@ -16,38 +18,13 @@
   </b-navbar-nav>
 </template>
 
-<style scoped lang="scss">
-  .search-engine{
-      display: flex;
-      flex-direction: row;
-
-      span {
-        color: $background-app;
-      }
-
-      .search-picto{
-        height: 100%;
-        filter: invert(39%) sepia(55%) saturate(593%)
-        hue-rotate(76deg) brightness(101%) contrast(91%);
-        display: flex;
-        margin-right: 0.5rem;
-
-        img {
-          height: 25px;
-          width: 25px;
-          align-self: center;
-        }
-      }
-  }
-</style>
-
 <script>
 
 import { mapGetters, mapMutations } from 'vuex';
 import findByIngredients from '../../api/spoonacularClient';
 
 export default {
-  name: 'HeadSearchEngine',
+  name: 'ResultSearchEngine',
   data() {
     return {
       searchIngredient: '',
@@ -77,3 +54,29 @@ export default {
   },
 };
 </script>
+
+<style scoped lang="scss">
+  .search-engine{
+      display: flex;
+      flex-direction: row;
+
+      span {
+        color: $background-app;
+      }
+
+      .search-picto{
+        height: 100%;
+        filter: invert(39%) sepia(55%) saturate(593%)
+        hue-rotate(76deg) brightness(101%) contrast(91%);
+        display: flex;
+        margin-right: 0.5rem;
+
+        img {
+          height: 25px;
+          width: 25px;
+          align-self: center;
+        }
+
+      }
+  }
+</style>

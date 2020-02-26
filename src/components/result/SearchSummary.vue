@@ -3,18 +3,18 @@
     <span>
        <h3> {{ getSearchIngredient }} </h3>: {{ getResultsNumber }} results
     </span>
-    <HeadSearchEngine v-bind:display-gimmik="false"/>
+    <ResultSearchEngine v-bind:display-gimmik="false"/>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex';
-import HeadSearchEngine from '../header/HeadSearchEngine.vue';
+import ResultSearchEngine from '../searchEngine/ResultSearchEngine.vue';
 
 export default {
   name: 'SearchSummary',
   components: {
-    HeadSearchEngine,
+    ResultSearchEngine,
   },
   computed: {
     ...mapGetters([

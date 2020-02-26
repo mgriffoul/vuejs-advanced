@@ -1,26 +1,18 @@
 <template>
-<header id="header">
-  <b-navbar toggleable="lg" class="bg-custom">
-      <b-navbar-brand href="#">
-        <img alt="Vue logo" src="../../assets/logo-small.png">
-      </b-navbar-brand>
-    <b-collapse id="nav-collapse" is-nav>
-      <Navbar/>
-      <HeadSearchEngine v-bind:display-gimmik="true"/>
-    </b-collapse>
-  </b-navbar>
-</header>
+  <header id="header">
+    <b-navbar toggleable="md" class="bg-custom">
+      <MainSearchEngine v-bind:display-gimmik="true"/>
+    </b-navbar>
+  </header>
 </template>
 
 <script>
-import Navbar from './Navbar.vue';
-import HeadSearchEngine from './HeadSearchEngine.vue';
+import MainSearchEngine from '../searchEngine/MainSearchEngine.vue';
 
 export default {
   name: 'Header',
   components: {
-    Navbar,
-    HeadSearchEngine,
+    MainSearchEngine,
   },
 };
 </script>
@@ -31,6 +23,7 @@ export default {
 
   .bg-custom {
     background-color: $primary-green;
+    height: 7rem;
   }
 
 }
