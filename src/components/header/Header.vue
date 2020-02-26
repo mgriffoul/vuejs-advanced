@@ -24,6 +24,7 @@ export default {
   .bg-custom {
     background-color: $primary-green;
     height: 7rem;
+    padding-right: 2rem;
   }
 
 }

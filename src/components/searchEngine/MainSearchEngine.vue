@@ -3,8 +3,14 @@
         <span class="carrot">
           <img src="../../assets/carrot.svg">
         </span>
-        <form class="form-wrapper" @submit.prevent="handleSubmit">
-            <input type="text" placeholder="Looking for veggy recipes ?" v-model="searchIngredient">
+        <form class="form-wrapper"
+          v-bind:class="{ focused : inputFocused }"
+          @submit.prevent="handleSubmit">
+            <input type="text" placeholder="Looking for veggy recipes ?"
+            v-model="searchIngredient"
+            ref="ingredientInput"
+            @focus="handleFocus()"
+            @blur="handleBlur()">
             <button type="submit" class="search-icon">
                 <img src="../../assets/search.svg">
             </button>
@@ -22,6 +28,7 @@ export default {
   data() {
     return {
       searchIngredient: '',
+      inputFocused: false,
     };
   },
   computed: {
@@ -37,7 +44,14 @@ export default {
       if (!this.$router.path || this.$router.path !== '/result') {
         this.$router.push('/result').catch(() => {});
       }
+      this.$refs.ingredientInput.blur();
       this.searchIngredient = '';
+    },
+    handleFocus() {
+      this.inputFocused = true;
+    },
+    handleBlur() {
+      this.inputFocused = false;
     },
   },
 };
@@ -63,6 +77,14 @@ export default {
     width: 30rem;
     padding: 0.7rem;
 
+      &.focused{
+        color: #495057;
+        background-color: #fff;
+        border-color: #80bdff;
+        outline: 0;
+        box-shadow: 0 0 0 0.2rem #F39C12;
+      }
+
     input {
       height: 100%;
       width: 100%;
@@ -70,6 +92,7 @@ export default {
       border-right: 1px solid #d5d5d6;
       outline: none;
       text-align: start;
+
     }
 
     .search-icon {
