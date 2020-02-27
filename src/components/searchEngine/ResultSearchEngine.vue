@@ -1,18 +1,12 @@
 <template>
   <b-navbar-nav class="ml-auto search-engine">
-    <span class="navbar-text mr-1" v-if="displayGimmik">
-      Tell us what you want to cook :
-    </span>
-
-    <span class="search-picto" v-if="!displayGimmik"><img src="../../assets/search.svg"></span>
 
     <b-nav-form @submit.prevent="handleSubmit">
       <b-form-input size="sm" class="mr-sm-2"
         placeholder="Ingredient" v-model="searchIngredient"></b-form-input>
-      <b-button size="sm"
-        class="my-2 my-sm-0"
-        type="submit"
-        >Cook !</b-button>
+        <button type="submit" class="search-icon">
+                <img src="@/assets/search.svg">
+            </button>
     </b-nav-form>
 
   </b-navbar-nav>
@@ -29,9 +23,6 @@ export default {
     return {
       searchIngredient: '',
     };
-  },
-  props: {
-    displayGimmik: Boolean,
   },
   computed: {
     ...mapGetters([
@@ -64,18 +55,19 @@ export default {
         color: $background-app;
       }
 
-      .search-picto{
-        height: 100%;
+      .search-icon {
+      height: 100%;
+      border: none;
+      outline: none;
+      background-color: white;
+      line-height: 1;
+
+      img {
         filter: $orange-primary;
-        display: flex;
-        margin-right: 0.5rem;
-
-        img {
-          height: 25px;
-          width: 25px;
-          align-self: center;
-        }
-
+        height: 1.4rem;
+        width: 1.4rem;
       }
+
+    }
   }
 </style>

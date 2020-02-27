@@ -1,8 +1,6 @@
 <template>
   <div class="wrapper  m-auto">
-        <span class="carrot">
-          <img src="../../assets/carrot.svg">
-        </span>
+        <HomeLogo/>
         <form class="form-wrapper"
           v-bind:class="{ focused : inputFocused }"
           @submit.prevent="handleSubmit">
@@ -12,7 +10,7 @@
             @focus="handleFocus()"
             @blur="handleBlur()">
             <button type="submit" class="search-icon">
-                <img src="../../assets/search.svg">
+                <img src="@/assets/search.svg">
             </button>
         </form>
   </div>
@@ -21,10 +19,14 @@
 <script>
 
 import { mapMutations } from 'vuex';
-import findByIngredients from '../../api/spoonacularClient';
+import findByIngredients from '../../../api/spoonacularClient';
+import HomeLogo from './HomeLogo.vue';
 
 export default {
   name: 'MainSearchEngine',
+  components: {
+    HomeLogo,
+  },
   data() {
     return {
       searchIngredient: '',
@@ -58,61 +60,53 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.wrapper{
-  display: flex;
-
-  .carrot {
-    margin-right: 1rem;
-    width: 3rem;
-    height: 3rem;
-  }
-
-  .form-wrapper {
-    background-color: rgb(255, 255, 255);
-    border-radius: 1rem;
-    height: 3rem;
-    overflow: hidden;
+  .wrapper{
     display: flex;
-    padding-left: 0.6rem;
-    width: 30rem;
-    padding: 0.7rem;
 
-      &.focused{
-        color: #495057;
-        background-color: #fff;
-        border-color: #80bdff;
-        outline: 0;
-        box-shadow: 0 0 0 0.2rem #F39C12;
-      }
+    .form-wrapper {
+      background-color: rgb(255, 255, 255);
+      border-radius: 1rem;
+      height: 3rem;
+      overflow: hidden;
+      display: flex;
+      padding-left: 0.6rem;
+      width: 30rem;
+      padding: 0.7rem;
 
-    input {
-      height: 100%;
-      width: 100%;
-      border: none;
-      border-right: 1px solid #d5d5d6;
-      outline: none;
-      text-align: start;
+        &.focused{
+          color: #495057;
+          background-color: #fff;
+          border-color: #80bdff;
+          outline: 0;
+          box-shadow: 0 0 0 0.2rem #F39C12;
+        }
 
+        input {
+          height: 100%;
+          width: 100%;
+          border: none;
+          border-right: 1px solid #d5d5d6;
+          outline: none;
+          text-align: start;
+
+        }
+
+        .search-icon {
+          width: 6rem;
+          height: 100%;
+          margin-left: auto;
+          border: none;
+          outline: none;
+          background-color: white;
+          line-height: 1;
+
+          img {
+            filter: $orange-primary;
+            height: 1.4rem;
+            width: 1.4rem;
+          }
+
+        }
     }
-
-    .search-icon {
-      width: 6rem;
-      height: 100%;
-      margin-left: auto;
-      border: none;
-      outline: none;
-      background-color: white;
-      line-height: 1;
-
-      img {
-        filter: $orange-primary;
-        height: 1.4rem;
-        width: 1.4rem;
-      }
-
-    }
-
-  }
-
   }
 </style>

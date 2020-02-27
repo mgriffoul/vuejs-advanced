@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import MainSearchEngine from '../searchEngine/MainSearchEngine.vue';
+import MainSearchEngine from '../searchEngine/mainSearchEngine/MainSearchEngine.vue';
 
 export default {
   name: 'Header',

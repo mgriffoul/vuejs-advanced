@@ -4,7 +4,7 @@
       <span class="_search-summary">
         <h3> {{ getSearchIngredient }} </h3>: {{ getResultsNumber }} results
       </span>
-      <ResultSearchEngine v-bind:display-gimmik="false"/>
+      <ResultSearchEngine/>
     </div>
   </div>
 </template>
