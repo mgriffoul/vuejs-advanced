@@ -1,9 +1,11 @@
 <template>
   <div id="summary">
-    <span>
-       <h3> {{ getSearchIngredient }} </h3>: {{ getResultsNumber }} results
-    </span>
-    <ResultSearchEngine v-bind:display-gimmik="false"/>
+    <div class="summary-block">
+      <span class="_search-summary">
+        <h3> {{ getSearchIngredient }} </h3>: {{ getResultsNumber }} results
+      </span>
+      <ResultSearchEngine v-bind:display-gimmik="false"/>
+    </div>
   </div>
 </template>
 
@@ -27,10 +29,15 @@ export default {
 
 <style scoped lang="scss">
   #summary{
-    text-align: left;
-    margin-top: $title-primary-space;
-    display: flex;
-    flex-direction: row;
+
+  border-bottom: 1px solid $shadow-grey;
+
+    .summary-block {
+      text-align: left;
+      display: flex;
+      flex-direction: row;
+      padding: 1rem;
+    }
 
     span {
       color: $primary-green
@@ -39,5 +46,6 @@ export default {
     h3 {
       display: inline;
     }
+
   }
 </style>

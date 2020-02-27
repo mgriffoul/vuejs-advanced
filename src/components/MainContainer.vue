@@ -19,6 +19,6 @@ export default {
   background-color: $background-primary;
   box-shadow: 0px 0px 15px 5px $shadow-grey;
   margin-top: $primary-space;
-  padding-left: 3rem;
+  padding: 0;
 }
 </style>
