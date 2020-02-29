@@ -21,19 +21,18 @@ export default {
 </script>
 
 <style lang="scss">
-#background {
-  background-color: $background-app;
-  position: fixed;
-  height: 100%;
-  width: 100%;
-}
+  #background {
+    background-color: $background-app;
+    height: 100%;
+    width: 100%;
+  }
 
-#app {
-  font-family: Source Sans Pro, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  height: 100%;
-}
+  #app {
+    font-family: Source Sans Pro, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    height: 100%;
+  }
 
 </style>

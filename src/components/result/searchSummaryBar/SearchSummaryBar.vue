@@ -11,10 +11,10 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import ResultSearchEngine from '../searchEngine/ResultSearchEngine.vue';
+import ResultSearchEngine from '../../searchEngine/ResultSearchEngine.vue';
 
 export default {
-  name: 'SearchSummary',
+  name: 'SearchSummaryBar',
   components: {
     ResultSearchEngine,
   },
