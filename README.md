@@ -1,4 +1,4 @@
-# advanced-vue
+# Carrots-Fan
 
 Ce projet a pour ambition simple de prendre en main Vue.js en créant une application culinaire qui fournira des recettes Veggy à partir d'ingrédients donnés.
 Regardez dans votre réfrigérateur, rentrez l'ingrédient que vous souhaitez cuisinez, et l'appli vous fournira des recettes ! 

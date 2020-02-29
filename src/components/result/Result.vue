@@ -10,7 +10,7 @@
 <script>
 
 import SearchSummary from './SearchSummary.vue';
-import RecipesList from './RecipesList.vue';
+import RecipesList from './recipeList/RecipesList.vue';
 
 export default {
   name: 'Result',
