@@ -1,19 +1,19 @@
 <template>
-    <ul id="recipes-list">
-        <li v-for="recipe in getRecipes" :key="recipe.id" class="_recipe">
-          <div class="card" style="width: 18rem;">
-            <div class="card-header">
-              {{ recipe.title }}
-            </div>
-            <img class="card-img-top" v-bind:src=recipe.image alt="Card image cap">
-            <div class="card-body">
-              <p class="card-text">
-                  Some quick example
-              </p>
-            </div>
-          </div>
-        </li>
-      </ul>
+  <ul id="recipes-list">
+    <li v-for="recipe in getRecipes" :key="recipe.id" class="_recipe">
+      <div class="card" style="width: 18rem;">
+        <div class="card-header">
+          {{ recipe.title }}
+        </div>
+        <img class="card-img-top" v-bind:src=recipe.image alt="Card image cap">
+        <div class="card-body">
+          <p class="card-text">
+              Some quick example
+          </p>
+        </div>
+      </div>
+    </li>
+  </ul>
 </template>
 
 <script>
@@ -38,12 +38,8 @@ export default {
   display: flex;
   list-style: none;
 
-    ul {
-      padding-left: 4rem;
-    }
-
     li {
-      margin-top: $primary-space;
+      margin: $primary-space 0 0 $left-primary-space;
       flex-basis: 100%;
     }
 
