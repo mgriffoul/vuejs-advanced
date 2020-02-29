@@ -34,5 +34,4 @@ export default {
     text-align: center;
     height: 100%;
   }
-
 </style>

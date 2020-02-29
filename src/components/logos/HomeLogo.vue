@@ -1,6 +1,6 @@
 <template>
   <a class="carrot" href="" @click="goHome()">
-    <img src="../../../assets/carrot.svg">
+    <img src="../../assets/carrot.svg">
   </a>
 </template>
 

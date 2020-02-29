@@ -1,7 +1,7 @@
 
 <template>
   <div class="result overflow-auto">
-    <SearchSummaryBar/>
+    <SummaryBar/>
     <RecipesList/>
   </div>
 
@@ -9,16 +9,15 @@
 
 <script>
 
-import SearchSummaryBar from './searchSummaryBar/SearchSummaryBar.vue';
+import SummaryBar from './summaryBar/SummaryBar.vue';
 import RecipesList from './recipeList/RecipesList.vue';
 
 export default {
   name: 'Result',
   components: {
-    SearchSummaryBar,
+    SummaryBar,
     RecipesList,
   },
-
 };
 </script>
 

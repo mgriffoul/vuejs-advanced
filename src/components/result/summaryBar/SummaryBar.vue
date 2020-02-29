@@ -14,7 +14,7 @@ import { mapGetters } from 'vuex';
 import ResultSearchEngine from '../../searchEngine/ResultSearchEngine.vue';
 
 export default {
-  name: 'SearchSummaryBar',
+  name: 'SummaryBar',
   components: {
     ResultSearchEngine,
   },
@@ -36,7 +36,8 @@ export default {
       text-align: left;
       display: flex;
       flex-direction: row;
-      padding: 1rem;
+      padding: 1rem 0;
+      margin-left: $left-space-large;
     }
 
     span {

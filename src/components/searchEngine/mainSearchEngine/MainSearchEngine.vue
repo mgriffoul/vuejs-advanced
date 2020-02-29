@@ -20,7 +20,7 @@
 
 import { mapMutations } from 'vuex';
 import findByIngredients from '../../../api/spoonacularClient';
-import HomeLogo from './HomeLogo.vue';
+import HomeLogo from '../../logos/HomeLogo.vue';
 
 export default {
   name: 'MainSearchEngine',

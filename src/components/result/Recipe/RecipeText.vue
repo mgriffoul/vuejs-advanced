@@ -1,31 +1,27 @@
 <template>
-  <div class="recipe">
-    <div class="recipe-image">
-      <img v-bind:src=recipe.image alt="Card image cap">
-    </div>
-    <div class="recipe-body">
-      <span class="recipe-title">
-        {{ recipe.title }}
-      </span>
-      <RecipeLikes :likes=recipe.likes />
-      <RecipeText :recipe=recipe />
-    </div>
-  </div>
+  <span class="recipe-text">
+    <span class="recipe-text-title"> Ingredients : </span>
+    <span class="recipe-ingredient"
+    v-for="missedIngredients in recipe.missedIngredients" :key="missedIngredients">
+      {{ missedIngredients.name}},
+    </span>
+    <span class="recipe-ingredient"
+    v-for="usedIngredient in recipe.usedIngredients" :key="usedIngredient">
+      {{ usedIngredient.name}},
+    </span>
+    <span class="recipe-ingredient"
+    v-for="unusedIngredient in recipe.unusedIngredients" :key="unusedIngredient">
+      {{ unusedIngredient.name}},
+    </span>
+  </span>
 </template>
 
 <script>
-import RecipeLikes from './RecipeLikes.vue';
-import RecipeText from './RecipeText.vue';
 
 export default {
-  name: 'Recipe',
-  components: {
-    RecipeLikes,
-    RecipeText,
-  },
+  name: 'RecipeText',
   props: {
     recipe: Object,
-    key: String,
   },
 };
 </script>
@@ -40,7 +36,6 @@ export default {
       .recipe-title {
         border-bottom: 1px solid $shadow-grey;
         font-weight: 700;
-        text-align: left;
       }
       .recipe-text {
         margin-top: $primary-space;

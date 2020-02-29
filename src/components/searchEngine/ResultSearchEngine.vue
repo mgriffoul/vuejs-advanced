@@ -1,6 +1,5 @@
 <template>
   <b-navbar-nav class="ml-auto search-engine">
-
     <b-nav-form @submit.prevent="handleSubmit">
       <b-form-input size="sm" class="mr-sm-2"
         placeholder="Ingredient" v-model="searchIngredient"></b-form-input>
@@ -8,7 +7,6 @@
                 <img src="@/assets/search.svg">
             </button>
     </b-nav-form>
-
   </b-navbar-nav>
 </template>
 
