@@ -2,15 +2,15 @@
   <span class="recipe-text">
     <span class="recipe-text-title"> Ingredients : </span>
     <span class="recipe-ingredient"
-    v-for="missedIngredients in recipe.missedIngredients" :key="missedIngredients">
+    v-for="missedIngredients in recipe.missedIngredients" :key="missedIngredients.id">
       {{ missedIngredients.name}},
     </span>
     <span class="recipe-ingredient"
-    v-for="usedIngredient in recipe.usedIngredients" :key="usedIngredient">
+    v-for="usedIngredient in recipe.usedIngredients" :key="usedIngredient.id">
       {{ usedIngredient.name}},
     </span>
     <span class="recipe-ingredient"
-    v-for="unusedIngredient in recipe.unusedIngredients" :key="unusedIngredient">
+    v-for="unusedIngredient in recipe.unusedIngredients" :key="unusedIngredient.id">
       {{ unusedIngredient.name}},
     </span>
   </span>

@@ -48,6 +48,7 @@ export default {
   .search-engine{
       display: flex;
       flex-direction: row;
+      margin-right: $left-space-medium;
 
       span {
         color: $background-app;

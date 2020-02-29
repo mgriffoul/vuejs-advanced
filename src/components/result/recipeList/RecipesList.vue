@@ -1,7 +1,7 @@
 <template>
   <ul id="recipes-list">
     <li v-for="recipe in getRecipes" :key="recipe.id" class="_recipe">
-      <Recipe :recipe="recipe" :key="recipe.id"/>
+      <Recipe :recipe="recipe" :recipeId="recipe.id"/>
     </li>
   </ul>
 </template>

@@ -9,9 +9,14 @@
             ref="ingredientInput"
             @focus="handleFocus()"
             @blur="handleBlur()">
-            <button type="submit" class="search-icon">
-                <img src="@/assets/search.svg">
-            </button>
+            <div class="button-wrapper">
+              <button  type="submit" class="search-icon">
+                  <img v-show="!loading" src="@/assets/search.svg">
+                  <div class="loader">
+                  <b-spinner small label="Loading..." v-show="loading"></b-spinner>
+                </div>
+              </button>
+            </div>
         </form>
   </div>
 </template>
@@ -31,6 +36,7 @@ export default {
     return {
       searchIngredient: '',
       inputFocused: false,
+      loading: false,
     };
   },
   computed: {
@@ -40,14 +46,16 @@ export default {
   },
   methods: {
     async handleSubmit() {
-      this.$store.commit('setSearchIngredient', { ingredient: this.searchIngredient });
+      this.loading = true;
       const mock = await findByIngredients();
+      this.$store.commit('setSearchIngredient', { ingredient: this.searchIngredient });
       this.$store.dispatch('updateRecipes', mock);
       if (!this.$router.path || this.$router.path !== '/result') {
         this.$router.push('/result').catch(() => {});
       }
       this.$refs.ingredientInput.blur();
       this.searchIngredient = '';
+      this.loading = false;
     },
     handleFocus() {
       this.inputFocused = true;
@@ -69,6 +77,7 @@ export default {
       height: 3rem;
       overflow: hidden;
       display: flex;
+      align-items: center;
       padding-left: 0.6rem;
       width: 30rem;
       padding: 0.7rem;
@@ -91,22 +100,30 @@ export default {
 
         }
 
-        .search-icon {
+        .button-wrapper{
           width: 6rem;
-          height: 100%;
-          margin-left: auto;
-          border: none;
-          outline: none;
-          background-color: white;
-          line-height: 1;
+          .search-icon {
+            height: 100%;
+            margin-left: auto;
+            border: none;
+            outline: none;
+            background-color: white;
+            line-height: 1;
 
-          img {
-            filter: $orange-primary;
-            height: 1.4rem;
-            width: 1.4rem;
+            img {
+              filter: $orange-primary;
+              height: 1.4rem;
+              width: 1.4rem;
+            }
+
+            .loader {
+              color: #EC9023;
+            }
+
           }
-
         }
+
+
     }
   }
 </style>

@@ -1,5 +1,9 @@
 <template>
-  <div class="recipe">
+  <router-link :to="{
+    name: 'Detail',
+    params: {recipeId : recipe.id},
+    props: {recipeId: recipe.id}}"
+    class="recipe">
     <div class="recipe-image">
       <img v-bind:src=recipe.image alt="Card image cap">
     </div>
@@ -10,7 +14,7 @@
       <RecipeLikes :likes=recipe.likes />
       <RecipeText :recipe=recipe />
     </div>
-  </div>
+  </router-link>
 </template>
 
 <script>
@@ -25,7 +29,6 @@ export default {
   },
   props: {
     recipe: Object,
-    key: String,
   },
 };
 </script>
