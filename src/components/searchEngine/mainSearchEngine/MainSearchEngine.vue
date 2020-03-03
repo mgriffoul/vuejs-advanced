@@ -24,7 +24,7 @@
 <script>
 
 import { mapMutations } from 'vuex';
-import findByIngredients from '../../../api/spoonacularClient';
+import { findByIngredients } from '../../../api/spoonacularClient';
 import HomeLogo from '../../logos/HomeLogo.vue';
 
 export default {

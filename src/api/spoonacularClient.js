@@ -1,6 +1,7 @@
 import mockFindByIngredient from './spoonacularGetIngredientsMock';
+import mockGetRecipeInformations from './spoonacularGetRecipeInformationMock';
 
-export default function findByIngredients() {
+function findByIngredients() {
   return new Promise(
     (resolve) => {
       setTimeout(() => {
@@ -10,3 +11,14 @@ export default function findByIngredients() {
     },
   );
 }
+
+function getRecipeInformations() {
+  return new Promise(
+    (resolve) => {
+      const recipeInformation = mockGetRecipeInformations();
+      resolve(recipeInformation);
+    },
+  );
+}
+
+export { findByIngredients, getRecipeInformations };

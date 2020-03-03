@@ -13,7 +13,7 @@
 <script>
 
 import { mapGetters, mapMutations } from 'vuex';
-import findByIngredients from '../../api/spoonacularClient';
+import { findByIngredients } from '../../api/spoonacularClient';
 
 export default {
   name: 'ResultSearchEngine',

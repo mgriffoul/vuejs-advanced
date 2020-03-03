@@ -26,6 +26,4 @@ export default new Vuex.Store({
       context.commit('updateRecipes', recipes);
     },
   },
-  modules: {
-  },
 });
